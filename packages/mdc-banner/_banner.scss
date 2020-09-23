@@ -57,6 +57,7 @@ $_exit-duration: 250ms;
   );
   @include banner-theme.min-width($_min-width, $query: $query);
   @include banner-theme.max-width($_max-width, $query: $query);
+  @include banner-theme.z-index(banner-theme.$z-index, $query: $query);
 
   .mdc-banner {
     @include banner-theme.fill-color(banner-theme.$fill-color, $query: $query);
@@ -115,6 +116,12 @@ $_exit-duration: 250ms;
 
   .mdc-banner--centered {
     @include banner-theme.position-centered($query: $query);
+
+    .mdc-banner__fixed {
+      @include feature-targeting.targets($feat-structure) {
+        left: 0;
+      }
+    }
   }
 
   .mdc-banner__fixed {
